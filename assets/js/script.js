@@ -60,7 +60,6 @@ const select = document.querySelector("[data-select]");
 const selectItems = document.querySelectorAll("[data-select-item]");
 const selectValue = document.querySelector("[data-selecct-value]");
 const filterBtn = document.querySelectorAll("[data-filter-btn]");
-
 select.addEventListener("click", function () { elementToggleFunc(this); });
 
 // add event in all select items
@@ -135,25 +134,36 @@ for (let i = 0; i < navigationLinks.length; i++) {
   });
 }
 // Email sender 
-function sendEmail() {
-  let name = document.getElementById("name").value;
-  let email = document.getElementById("email").value;
-  let message = document.getElementById("message").value;
 
-   Email.send({
-    Host: "smtp.elasticemail.com",
-    Username: "",
-    Password: "",
-    To:'ehtisham.ahmed567@gmail.com',
-    From: '',
-    Subject: "Thanks " +name,
-    Body: "Hi,"+name + "&nbsp;"+" Thanks for joining Shehan Ahmed Gondal 😊"+"<br>"+" Message:&nbsp;"+message+"<br>"+"Message from:&nbsp;"+email
-  }).then(
-     alert("Thanks "+name+" For joining Kamboh div 😊. We will send you responsive email Soon"));
-}
+(function () {
+  
+  emailjs.init("jD6J3KM3X_G7mGBG6"); 
+  document.getElementById("contact-from").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const from_name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const message = document.getElementById("message").value;
+      emailjs.send("service_flbkvfl","template_nr8pvvh", {
+        from_name: from_name,
+          email: email,
+          message: message,
+      })
+      .then(function (response) {
+          console.log("Email sent successfully:", response);
+          alert("Email sent successfully.","Thanks "+from_name+" For joining Ahmed 😊. We will send you responsive email Soon");
+      })
+      .catch(function (error) {
+          console.error("Email could not be sent:", error);
+          alert("An error occurred while sending the email.");
+      });
+  });
+})();
+
 // typed animation 
 var typed = new Typed('.title', {
-  strings: ['Graphic Designer', ' Artist ',' Poet '],
+  strings: ['Graphic Designer', ' Concept logo design ','  Personal branding ',' Products ads poster ',
+'Business flyer and brochures',' Video editing'],  
   loop: true,
   typeSpeed: 200,
   backSpeed:100 ,  
