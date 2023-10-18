@@ -137,14 +137,15 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
 (function () {
   
-  emailjs.init("jD6J3KM3X_G7mGBG6"); 
+  emailjs.init("Fvbx-diSXvcwvo2p1"); 
   document.getElementById("contact-from").addEventListener("submit", function (event) {
-      event.preventDefault();
+    event.preventDefault();
 
       const from_name = document.getElementById("name").value;
       const email = document.getElementById("email").value;
       const message = document.getElementById("message").value;
-      emailjs.send("service_flbkvfl","template_nr8pvvh", {
+      const form = document.getElementById("contact-from");
+      emailjs.send("service_0i0svnq","template_7l4o6jk", {
         from_name: from_name,
           email: email,
           message: message,
@@ -152,6 +153,7 @@ for (let i = 0; i < navigationLinks.length; i++) {
       .then(function (response) {
           console.log("Email sent successfully:", response);
           alert("Email sent successfully.","Thanks "+from_name+" For joining Ahmed 😊. We will send you responsive email Soon");
+          form.reset();
       })
       .catch(function (error) {
           console.error("Email could not be sent:", error);
@@ -187,7 +189,7 @@ function CopyP(x) {
 }
 // To block inspect element on browser
 document.addEventListener("contextmenu", function (e) {
-  e.preventDefault();
+  // e.preventDefault();
 });
 
 document.onkeydown = function (e) {
