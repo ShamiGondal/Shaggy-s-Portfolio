@@ -189,7 +189,7 @@ function CopyP(x) {
 }
 // To block inspect element on browser
 document.addEventListener("contextmenu", function (e) {
-  // e.preventDefault();
+  e.preventDefault();
 });
 
 document.onkeydown = function (e) {
