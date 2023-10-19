@@ -369,6 +369,9 @@ video {
 .h-48 {
     height: 12rem
 }
+.h-50 {
+    height: 16rem
+}
 
 .h-8 {
     height: 2rem
@@ -534,6 +537,14 @@ video {
 
 .tracking-wide {
     letter-spacing: .025em
+}
+.flexBlog{
+    display: flex;
+    margin-top: 3px;
+    gap: 10px;
+}
+.goldenColor{
+    color: #fbd56c;
 }
 
 .text-\[\#9a9a9a\] {
